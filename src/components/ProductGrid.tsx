@@ -43,7 +43,7 @@ const ProductGrid = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: index * 0.08, ease: "easeOut" }}
-            className="break-inside-avoid group relative overflow-hidden rounded-lg bg-card shadow-sm hover:shadow-xl transition-shadow duration-500 tactile-press"
+            className="break-inside-avoid group relative overflow-hidden rounded-lg bg-card shadow-sm hover:shadow-xl transition-shadow duration-500 tactile-press cursor-pointer"
           >
             <div className="relative overflow-hidden">
               <img
