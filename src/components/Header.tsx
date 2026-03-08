@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ShoppingBag, Menu, X, Search, User } from "lucide-react";
+import AuthModal from "@/components/AuthModal";
 
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
