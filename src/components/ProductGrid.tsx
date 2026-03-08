@@ -1,85 +1,10 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Eye, ShoppingBag, X, Download, FileText, Image as ImageIcon, Leaf, ChevronDown } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { products, type Product } from "@/data/products";
 
-import product1 from "@/assets/product-1.jpg";
-import product2 from "@/assets/product-2.jpg";
-import product3 from "@/assets/product-3.jpg";
-import product4 from "@/assets/product-4.jpg";
-import product5 from "@/assets/product-5.jpg";
-import product6 from "@/assets/product-6.jpg";
-
-interface Product {
-  id: number;
-  name: string;
-  category: string;
-  price: string;
-  image: string;
-  tall?: boolean;
-  includes: string[];
-  description: string;
-}
-
-const products: Product[] = [
-  {
-    id: 1,
-    name: "Organic Forms — Terracotta",
-    category: "Visual Sanctuaries",
-    price: "$12.00",
-    image: product1,
-    tall: true,
-    includes: ["High-Res JPG (300 DPI)", "PDF Print-Ready", "Printing Guide"],
-    description: "Abstract organic shapes in warm terracotta tones. Perfect for creating a cozy, grounded atmosphere in any space.",
-  },
-  {
-    id: 2,
-    name: "Botanical Ritual Deck",
-    category: "Spiritual Tools",
-    price: "$24.00",
-    image: product2,
-    tall: true,
-    includes: ["9 Card Designs (PDF)", "High-Res JPG Set", "Ritual Guide PDF"],
-    description: "A set of 9 botanical-themed ritual cards with gold foil details. Use for daily intentions, meditation, or journaling.",
-  },
-  {
-    id: 3,
-    name: "Fern & Wildflower Botanical",
-    category: "Visual Sanctuaries",
-    price: "$10.00",
-    image: product3,
-    includes: ["High-Res JPG (300 DPI)", "PDF Print-Ready", "Sizing Guide"],
-    description: "Minimalist botanical line art featuring fern and wildflower illustrations in forest green.",
-  },
-  {
-    id: 4,
-    name: "Celestial Moon Phases",
-    category: "Visual Sanctuaries",
-    price: "$14.00",
-    image: product4,
-    includes: ["High-Res JPG (300 DPI)", "PDF Print-Ready", "Printing Guide"],
-    description: "Gold and navy celestial art featuring moon phases. A mystical addition to your sacred space.",
-  },
-  {
-    id: 5,
-    name: "Daily Affirmation Cards",
-    category: "Spiritual Tools",
-    price: "$18.00",
-    image: product5,
-    tall: true,
-    includes: ["30 Card Designs (PDF)", "High-Res JPG Set", "Daily Practice Guide"],
-    description: "30 beautifully designed affirmation cards in warm terracotta. Start each day with intention.",
-  },
-  {
-    id: 6,
-    name: "Desert Horizon — Earth Tones",
-    category: "Visual Sanctuaries",
-    price: "$11.00",
-    image: product6,
-    includes: ["High-Res JPG (300 DPI)", "PDF Print-Ready", "Printing Guide"],
-    description: "A serene abstract desert landscape in layered earth tones. Brings warmth and tranquility to your walls.",
-  },
-];
 
 const ProductGrid = () => {
   const [quickView, setQuickView] = useState<Product | null>(null);
@@ -118,7 +43,7 @@ const ProductGrid = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: index * 0.08, ease: "easeOut" }}
-            className="break-inside-avoid group relative overflow-hidden rounded-lg bg-card shadow-sm hover:shadow-xl transition-shadow duration-500 tactile-press"
+            className="break-inside-avoid group relative overflow-hidden rounded-lg bg-card shadow-sm hover:shadow-xl transition-shadow duration-500 tactile-press cursor-pointer"
           >
             <div className="relative overflow-hidden">
               <img
@@ -130,15 +55,13 @@ const ProductGrid = () => {
 
               {/* Overlay */}
               <div className="absolute inset-0 bg-charcoal/0 group-hover:bg-charcoal/40 transition-all duration-500 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100">
-                <motion.button
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={() => setQuickView(product)}
-                  className="h-11 w-11 rounded-full bg-background/95 flex items-center justify-center shadow-lg"
+                <Link
+                  to={`/product/${product.id}`}
+                  className="h-11 w-11 rounded-full bg-background/95 flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
                   aria-label="Quick view"
                 >
                   <Eye className="h-4 w-4 text-foreground" />
-                </motion.button>
+                </Link>
                 <motion.button
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}

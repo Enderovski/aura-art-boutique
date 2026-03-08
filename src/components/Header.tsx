@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ShoppingBag, Menu, X, Search, User } from "lucide-react";
+import AuthModal from "@/components/AuthModal";
 
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [cartCount] = useState(0);
+  const [authOpen, setAuthOpen] = useState(false);
 
   const links = [
     { label: "The Vault", href: "#vault" },
@@ -46,7 +48,7 @@ const Header = () => {
             <button className="text-muted-foreground hover:text-foreground transition-colors duration-200" aria-label="Search">
               <Search className="h-[18px] w-[18px]" />
             </button>
-            <button className="text-muted-foreground hover:text-foreground transition-colors duration-200 hidden sm:block" aria-label="Account">
+            <button onClick={() => setAuthOpen(true)} className="text-muted-foreground hover:text-foreground transition-colors duration-200 hidden sm:block" aria-label="Account">
               <User className="h-[18px] w-[18px]" />
             </button>
             <button className="relative text-muted-foreground hover:text-foreground transition-colors duration-200" aria-label="Shopping bag">
@@ -95,6 +97,7 @@ const Header = () => {
           </motion.div>
         )}
       </AnimatePresence>
+      <AuthModal isOpen={authOpen} onClose={() => setAuthOpen(false)} />
     </header>
   );
 };
