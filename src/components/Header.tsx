@@ -6,6 +6,7 @@ import AuthModal from "@/components/AuthModal";
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [cartCount] = useState(0);
+  const [authOpen, setAuthOpen] = useState(false);
 
   const links = [
     { label: "The Vault", href: "#vault" },
