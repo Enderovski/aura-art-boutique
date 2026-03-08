@@ -97,6 +97,7 @@ const Header = () => {
           </motion.div>
         )}
       </AnimatePresence>
+      <AuthModal isOpen={authOpen} onClose={() => setAuthOpen(false)} />
     </header>
   );
 };
