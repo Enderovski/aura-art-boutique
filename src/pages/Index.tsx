@@ -1,6 +1,8 @@
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
+import CategoryNav from "@/components/CategoryNav";
 import ProductGrid from "@/components/ProductGrid";
+import DailyIntention from "@/components/DailyIntention";
 import SustainabilitySection from "@/components/SustainabilitySection";
 import Footer from "@/components/Footer";
 
@@ -11,7 +13,9 @@ const Index = () => {
       <Header />
       <main>
         <HeroSection />
+        <CategoryNav />
         <ProductGrid />
+        <DailyIntention />
         <SustainabilitySection />
       </main>
       <Footer />
