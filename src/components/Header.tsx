@@ -48,7 +48,7 @@ const Header = () => {
             <button className="text-muted-foreground hover:text-foreground transition-colors duration-200" aria-label="Search">
               <Search className="h-[18px] w-[18px]" />
             </button>
-            <button className="text-muted-foreground hover:text-foreground transition-colors duration-200 hidden sm:block" aria-label="Account">
+            <button onClick={() => setAuthOpen(true)} className="text-muted-foreground hover:text-foreground transition-colors duration-200 hidden sm:block" aria-label="Account">
               <User className="h-[18px] w-[18px]" />
             </button>
             <button className="relative text-muted-foreground hover:text-foreground transition-colors duration-200" aria-label="Shopping bag">
