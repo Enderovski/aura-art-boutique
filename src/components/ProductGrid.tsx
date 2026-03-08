@@ -55,15 +55,13 @@ const ProductGrid = () => {
 
               {/* Overlay */}
               <div className="absolute inset-0 bg-charcoal/0 group-hover:bg-charcoal/40 transition-all duration-500 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100">
-                <motion.button
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={() => setQuickView(product)}
-                  className="h-11 w-11 rounded-full bg-background/95 flex items-center justify-center shadow-lg"
+                <Link
+                  to={`/product/${product.id}`}
+                  className="h-11 w-11 rounded-full bg-background/95 flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
                   aria-label="Quick view"
                 >
                   <Eye className="h-4 w-4 text-foreground" />
-                </motion.button>
+                </Link>
                 <motion.button
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
